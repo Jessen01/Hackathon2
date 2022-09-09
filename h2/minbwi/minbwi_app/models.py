@@ -29,6 +29,10 @@ class Booking(models.Model):
     number_of_seats = models.IntegerField()
     message = models.TextField(default=None)
     Restaurant_booking = models.ForeignKey(Restaurant,on_delete=models.CASCADE,default=None,null=True)
+    Status = models.BooleanField(default=True)
+    Confirm = models.BooleanField(default=False)
+
+
 
     def __str__(self):
         return f'{self.Restaurant_booking},{self.number_of_seats},{self.username}'
