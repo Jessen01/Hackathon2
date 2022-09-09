@@ -52,7 +52,7 @@
             </div>
 
             <div class="image">
-                <img src=".//image/kisspng-fried-noodles-chow-mein-peking-duck-chinese-cuisin-shrimp-and-vegetable-fried-noodles-5a9ac798004f52.6062589515200930800013.png" class="main-home-image" alt="">
+                <img src="{%static 'image/kisspng-fried-noodles-chow-mein-peking-duck-chinese-cuisin-shrimp-and-vegetable-fried-noodles-5a9ac798004f52.6062589515200930800013.png'%}" class="main-home-image" alt="">
             </div>
 
         </div>
@@ -66,7 +66,7 @@
         <h1 class=" heading"> story <span> why choose us</span></h1>
             <div class="row">
              <div class="image">
-            <img src="./image/Profile.jpg" alt="">
+            <img src="{%static 'image/Profile.jpg'%}" alt="">
             </div>
 
         <div class="content">
@@ -167,14 +167,14 @@
 
              <!-- <input name="region" type="text" placeholder="Locations" class="box"> -->
              <select name="region" type="text" placeholder="Locations" class="box">
-                <option value="Port Louis">Port Louis</option>
-                <option value="Curepipe">Curepipe</option>
-                <option value="Quatre Bornes">Quatre Bornes</option>
-                <option value="Moka">Moka</option> 
-                <option value="Grand-Baie">Grand Baie</option>
-             </select>
-             <select name="restaurant" type="text" placeholder="restaurant_name" class="box">
-                
+                {% for Region in Regions %}
+                    <option value="{{Region.region_name}}">{{Region.region_name}}</option>
+                {% endfor %}
+             </select> 
+             <select name="restaurant_name" type="text" placeholder="Restaurant" class="box">
+                {% for Restaurant in Restaurants %}
+                    <option value="{{ Restaurant.Restaurant_name }}">{{ Restaurant.Restaurant_name }}</option>
+                {% endfor %}
              </select>
             <input name = "seat" type="number" placeholder="Number of Seats" class="box">
 
